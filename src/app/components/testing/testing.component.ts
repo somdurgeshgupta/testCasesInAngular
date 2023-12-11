@@ -10,4 +10,10 @@ import { CommonModule } from '@angular/common';
 })
 export class TestingComponent {
 
+  componentName = "adData";
+
+  sum(a:number,b:number){
+    return a+b;
+  }
+
 }

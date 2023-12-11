@@ -1,10 +1,23 @@
-import { TestBed } from '@angular/core/testing';
+
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { By } from '@angular/platform-browser';
+
+import { Directive, Input } from '@angular/core';
+
+@Directive({
+  selector: '[routerLink]',
+})
+class RouterLinkStubDirective {
+  @Input('routerLink') linkParams: any;
+}
+
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [AppComponent, RouterTestingModule],
     }).compileComponents();
   });
 
@@ -24,6 +37,8 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, frontview');
+    expect(compiled.querySelector('#valuetext')?.textContent).toContain('Hello, frontview');
   });
+
+ 
 });

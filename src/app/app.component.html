@@ -1,1 +1,11 @@
-
+<main>
+    <a [routerLink]="['/']">
+      <header class="brand-name">
+        <img class="brand-logo" src="/assets/logo.svg" alt="logo" aria-hidden="true">
+      </header>
+    </a>
+    <section class="content">
+      <h1 id="valuetext">Hello, {{ title }}</h1>
+      <router-outlet></router-outlet>
+    </section>
+  </main>
